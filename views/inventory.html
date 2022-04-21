@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="stylesheets/inventoryStyle.css">
+</head>
+<body>
+    <div class="container">
+        <div class="section" id="bookList">
+            <h1>Book List: <img src="/images/list.jpg"></h1>
+            
+            <table>
+                <thead>
+
+                    <tr>
+                        <th>Title</th>
+                        <th>Rating</th>
+                        <th>Genre</th>
+                        <th>Author</th>
+                        <th></th>
+                    </tr>
+
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>Title1</td>
+                        <td>1</td>
+                        <td>Genre1</td>
+                        <td>Author1</td>
+                        <td> 
+                            <a class="btn-small waves-effect waves-purple light-blue darken-5" href="/inventory/detail"><i
+                                    class="material-icons right">build</i>Info/Edit</a>
+                            <a class="btn-small waves-effect waves-red red accent-1"><i
+                                    class="material-icons right">delete_forever</i>Delete</a>
+                        </td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td>Title2</td>
+                        <td>2</td>
+                        <td>Genre2</td>
+                        <td>Author2</td>
+                        <td> 
+                            <a class="btn-small waves-effect waves-purple light-blue darken-5" href="/inventory/detail"><i
+                                    class="material-icons right">build</i>Info/Edit</a>
+                            <a class="btn-small waves-effect waves-red red accent-1"><i
+                                    class="material-icons right">delete_forever</i>Delete</a>
+                        </td>
+                        
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section" id="bookAdd">
+            <h2>Add books:</h2>
+            <form>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <label for="name">Book Name:</label>
+                        <input type="text" name="name" class="validate" required>
+                    </div>
+                    <div class="input-field col s6">
+                        <label for="rating">Rating:</label>
+                        <input type="text" name="rating" class="validate">
+                    </div>
+                    <div class="input-field col s6">
+                        <select>
+                            <option value="" disabled selected>Genre</option>
+                            <option value="1">Fiction</option>
+                            <option value="2">Nonfiction</option>
+                            <option value="3">Other</option>
+                        </select>
+                        <label for="genre">Genre</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <label for="author">Author:</label>
+                        <input type="text" name="author" class="validate">
+                    </div>
+                    
+                </div>
+                <button class="btn waves-effect waves-green light-blue accent-1" type="submit"><i
+                        class="material-icons right">send</i>Submit</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script> M.AutoInit();</script>
+</body>
+</html>

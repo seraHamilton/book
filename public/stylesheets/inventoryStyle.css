@@ -1,0 +1,20 @@
+form {
+    border: solid 2px rgb(111, 128, 149);
+    padding: 10px;
+    background-color: #e3f2fd;
+    border-radius: 5px;
+}
+form:focus-within{
+    border: solid 2px rgb(51, 89, 135);
+}
+table {
+    border: solid 2px rgb(111, 128, 149);
+    background-color: #e3f2fd;
+}
+th, td {
+    padding: 15px;
+    border-bottom: 1px solid rgb(134, 144, 156);
+}
+tr:hover{
+    background-color: rgba(173, 191, 213, 0.523);
+}
