@@ -31,7 +31,7 @@ const insert_books_table_sql = `
 db.execute(insert_books_table_sql, ["The Catcher in the Rye", 4, "Fiction", "Salinger"]);
 db.execute(insert_books_table_sql, ["Title2", 2, "Nonfiction", null]);
 db.execute(insert_books_table_sql, ["Long Way Down", 3, null, null]);
-db.execute(insert_books_table_sql, ["The Three Body Problem", null, "Other", "Cixin"]);
+db.execute(insert_books_table_sql, ["The Three Body Problem", null, "Sci Fi", "Cixin"]);
 
 //read the new contents
 const read_books_table_sql = "SELECT * FROM books";
