@@ -10,7 +10,7 @@ const create_books_table_sql = `
 CREATE TABLE books (
     id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(100) NOT NULL,
-    rating INT NULL,
+    rating DOUBLE NULL,
     genre VARCHAR(45) NULL,
     author VARCHAR(45) NULL,
     PRIMARY KEY (id));
