@@ -22,8 +22,8 @@ const config = {
   auth0Logout: true,
   secret: process.env.AUTH0_SECRET,
   baseURL: process.env.AUTH0_BASE_URL,
-  clientID: process.env.AUTH0_CLIENTID,
-  issuerBaseURL: process.env.AUTH0_ISSUER_BASEURL
+  clientID: process.env.AUTH0_CLIENT_ID,
+  issuerBaseURL: process.env.AUTH0_ISSUER_BASE_URL
 };
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
@@ -73,7 +73,7 @@ const read_books_all_sql = `
 // define a route for the stuff inventory page
 app.get( "/inventory", requiresAuth(), ( req, res ) => {
     //taking data from db and send back to user
-    db.execute(read_books_all_sql, (error, results) => {
+    db.execute(read_books_all_sql, [req.oidc.user.email], (error, results) => {
         if (error)
             res.status(500).send(error); //500 = internal server error, error is object w/ info
         else
@@ -87,8 +87,9 @@ const read_books_item_sql = `
         id, title, rating, genre, author
     FROM
         books
-    WHERE id = ?
-    AND email = ?
+    WHERE 
+        id = ?
+        AND email = ?
 `
 
 // define a route for the item detail page
@@ -114,7 +115,7 @@ const delete_books_sql = `
         AND email = ?
 `
 
-app.get("/inventory/detail/:id/delete", (req, res) => {
+app.get("/inventory/detail/:id/delete", requiresAuth(), (req, res) => {
     db.execute(delete_books_sql, [req.params.id, req.oidc.email], (error, results) => {
         if (error)
             res.status(500).send(error);
@@ -133,7 +134,7 @@ const create_book_sql = `
 
 //creates book from form vals
 app.post("/inventory", requiresAuth(), (req, res) => {
-    db.execute(create_book_sql, [req.body.title, req.body.rating, req.body.genre, req.body.author], (error, results) => {
+    db.execute(create_book_sql, [req.body.title, req.body.rating, req.body.genre, req.body.author, req.oidc.user.email], (error, results) => {
         if (error)
             res.status(500).send(error);
         else 
