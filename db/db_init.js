@@ -8,6 +8,7 @@ db.execute(drop_books_table_sql);
 
 const create_books_table_sql = `
 CREATE TABLE books (
+    email VARCHAR(45) NULL,
     id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(100) NOT NULL,
     rating DOUBLE NULL,
